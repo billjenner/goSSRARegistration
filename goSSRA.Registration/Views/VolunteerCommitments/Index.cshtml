@@ -1,0 +1,93 @@
+@model IEnumerable<goSSRA.Registration.Models.VolunteerCommitments>
+
+@{
+    ViewBag.Title = "SSRA Events";
+}
+<br />
+<br />
+<div style="text-align: center">
+    <h2>SSRA Events</h2>
+    <br /><p>
+        Event Sign Up @Html.ActionLink("here", "Create")
+    </p><br />
+    <hr>
+</div>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="span4">
+            <h4>Current Event Sign Up</h4>
+        </div>
+        <div class="span4">
+
+        </div>
+        <div class="span4">
+            <p>
+                Find: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                <input type="submit" value="Search" class="btn" />
+            </p>
+        </div>
+    </div>
+}
+@{
+    var TopColor = "#EEEEDD";
+    var OddColor = "#FAFAF4";
+    var evenColor = "#FFFFFA";
+    var Odd = OddColor;
+}
+<table class="table">
+    <tr border="1" bgcolor="@TopColor">
+        <th>
+            @Html.ActionLink("Event Name", "Index", new { sortOrder = ViewBag.EventNameSortParm, sortDesc = ViewBag.sortDesc, currentFilter = ViewBag.CurrentFilter })
+            @*@Html.DisplayNameFor(model => model.VolunteerEvent.EventName)*@
+        </th>
+        <th>
+            @Html.ActionLink("Role Name", "Index", new { sortOrder = ViewBag.RoleNameSortParm, sortDesc = ViewBag.sortDesc, currentFilter = ViewBag.CurrentFilter })
+
+            @*@Html.DisplayNameFor(model => model.VolunteerRole.Role)*@
+        </th>
+        <th>
+            @Html.ActionLink("Registers Email", "Index", new { sortOrder = ViewBag.RegistersEmailSortParm, sortDesc = ViewBag.sortDesc, currentFilter = ViewBag.CurrentFilter })
+
+            @*@Html.DisplayNameFor(model => model.Email)*@
+        </th>
+        <th>
+            @Html.ActionLink("Family Name", "Index", new { sortOrder = ViewBag.FamilyNameSortParm, sortDesc = ViewBag.sortDesc, currentFilter = ViewBag.CurrentFilter })
+
+            @*@Html.DisplayNameFor(model => model.FamilyName)*@
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr border="1" bgcolor="@Odd">
+    <td>
+        @Html.DisplayFor(modelItem => item.VolunteerEvent.EventName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.VolunteerRole.Role)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FamilyName)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.CommitmentID }) |
+        @*@Html.ActionLink("Details", "Details", new { id = item.CommitmentID }) |*@
+        @Html.ActionLink("Delete", "Delete", new { id = item.CommitmentID })
+    </td>
+</tr>
+        if (Odd == OddColor)
+        {
+            Odd = evenColor;
+        }
+        else
+        {
+            Odd = OddColor;
+        }
+    }
+
+</table>

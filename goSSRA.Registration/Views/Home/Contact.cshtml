@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Contacts";
+}
+<br />
+<br />
+<hgroup>
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+</hgroup>
+<div>
+    <address>
+        Copyright © 2013 Spokane Ski Racing Association.<br />
+    </address>
+    <address>
+        <i class="icon-envelope"></i><strong>Executive Director/Head Coach: Chuck Holcomb </strong><a href="mailto:chholcomb@hotmail.com">chholcomb@hotmail.com</a><br />
+    </address>
+    <address>
+        <abbr title="Phone">P:</abbr>
+        (509) 979-7499
+    </address>
+    <br />
+    <br />
+    <address>
+        <i class="icon-envelope"></i><strong>Registrar: Janis Simpson </strong><a href="mailto:janishsimpson@gmail.com">janishsimpson@gmail.com</a><br />
+    </address>
+    <address>
+        <abbr title="Address">A:</abbr>
+        3420 S. Lincoln Drive
+        <br />&nbsp;&nbsp;&nbsp;&nbsp;Spokane, WA 99203
+    </address>
+    <address>
+        <abbr title="Phone">P:</abbr>
+        (509) 999-3567
+    </address>
+</div>
+<h6>
+    <a href="@Url.Action("EmailTest", "Home")">Email Test</a>
+</h6>
+
+

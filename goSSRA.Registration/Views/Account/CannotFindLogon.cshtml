@@ -1,0 +1,17 @@
+﻿@model goSSRA.Registration.Models.AccountModels.LogOnModel
+@{
+    ViewBag.Title = "Cannot find a logon";
+}
+ViewBag.email
+@ViewBag.email
+<br />
+<br />
+<div style="text-align: center">
+    <h2>Cannot find a logon account on record for: @ViewBag.email</h2>
+    <p>Please try again or see contacts list if further help is needed.</p>
+</div>
+<div>
+    @Html.ActionLink("Log On", "LogOn", "Account") |
+    @Html.ActionLink("Contacts", "Contact", "Home") |
+    @Html.ActionLink("Home", "Index", "Home")
+</div>

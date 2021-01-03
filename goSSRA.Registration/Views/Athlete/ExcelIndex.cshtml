@@ -1,0 +1,86 @@
+@model IEnumerable<goSSRA.Registration.Models.Athlete>
+@{
+    Layout = null;
+}
+<style>
+    table, th, td {
+        white-space: nowrap;
+        padding-left: 8px;
+    }
+</style>
+<table>
+    <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Gender</th>
+            <th>Birthday</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Postcode</th>
+            <th>Email</th>
+            <th>First Parent</th>
+            <th>Phone#1</th>
+            <th>Device</th>
+            <th>Phone#2</th>
+            <th>Device</th>
+            <th>Second Parent</th>
+            <th>Phone#1</th>
+            <th>Device</th>
+            <th>Phone#2</th>
+            <th>Device</th>
+            <th>Medical Conditions</th>
+            <th>Medications</th>
+            <th>Allergies</th>
+            <th>School</th>
+            <th>Grade</th>
+            <th>Medical Insurance</th>
+            <th>Policy #</th>
+            <th>Insurance Phone#</th>
+            <th>Physician</th>
+            <th>Physicia nPhone#</th>
+            <th>Emergeny Contact</th>
+            <th>Emergeny Contact Phone#</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var athlete in Model)
+        {
+            <tr>
+                <td>@athlete.FirstName</td>
+                <td>@athlete.LastName</td>
+                <td>@athlete.Gender</td>
+                <td>@athlete.Birthday.ToShortDateString()</td>
+                <td>@athlete.Address</td>
+                <td>@athlete.City</td>
+                <td>@athlete.State</td>
+                <td>@athlete.Postcode</td>
+                <td>@athlete.Email</td>
+                <td>@athlete.ParentName1</td>
+                <td>@athlete.Parent1Phone1</td>
+                <td>@athlete.Parent1Phone1Type</td>
+                <td>@athlete.Parent1Phone2</td>
+                <td>@athlete.Parent1Phone2Type</td>
+                <td>@athlete.ParentName2</td>
+                <td>@athlete.Parent2Phone1</td>
+                <td>@athlete.Parent2Phone1Type</td>
+                <td>@athlete.Parent2Phone2</td>
+                <td>@athlete.Parent2Phone2Type</td>
+                <td>@athlete.MedicalConditions</td>
+                <td>@athlete.PresentMedications</td>
+                <td>@athlete.Allergies</td>
+                <td>@athlete.School</td>
+                <td>@athlete.Grade</td>
+                <td>@athlete.MedicalInsurance</td>
+                <td>@athlete.PolicyNum</td>
+                <td>@athlete.InsurancePhone</td>
+                <td>@athlete.Physician</td>
+                <td>@athlete.PhysicianPhone</td>
+                <td>@athlete.EmergenyContact</td>
+                <td>@athlete.EmergenyContactPhone</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,266 @@
+@model goSSRA.Registration.Models.Athlete
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<h2>Details</h2>
+
+<fieldset>
+	<legend>Athlete</legend>
+	<dl>
+		<dt>
+			@Html.DisplayNameFor(model => model.FirstName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.FirstName)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.LastName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.LastName)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Gender)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Gender)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Birthday)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Birthday)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Address)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Address)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.City)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.City)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.State)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.State)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Postcode)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Postcode)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Email)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Email)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.ParentName1)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.ParentName1)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Parent1Phone1)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Parent1Phone1)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Parent1Phone1Type)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Parent1Phone1Type)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Parent1Phone2)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Parent1Phone2)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Parent1Phone2Type)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Parent1Phone2Type)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.ParentName2)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.ParentName2)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Parent2Phone1)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Parent2Phone1)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Parent2Phone1Type)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Parent2Phone1Type)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Parent2Phone2)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Parent2Phone2)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Parent2Phone2Type)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Parent2Phone2Type)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.MedicalConditions)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.MedicalConditions)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.PresentMedications)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.PresentMedications)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Allergies)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Allergies)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.School)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.School)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Grade)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Grade)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.MedicalInsurance)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.MedicalInsurance)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.PolicyNum)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.PolicyNum)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.InsurancePhone)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.InsurancePhone)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Physician)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Physician)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.PhysicianPhone)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.PhysicianPhone)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.EmergenyContact)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.EmergenyContact)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.EmergenyContactPhone)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.EmergenyContactPhone)
+		</dd>
+
+	</dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AthleteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

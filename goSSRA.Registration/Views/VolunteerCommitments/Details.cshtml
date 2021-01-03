@@ -1,0 +1,50 @@
+@model goSSRA.Registration.Models.VolunteerCommitments
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<h2>Details</h2>
+
+<fieldset>
+	<legend>VolunteerCommitments</legend>
+	<dl>
+		<dt>
+			@Html.DisplayNameFor(model => model.VolunteerEvent.EventName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.VolunteerEvent.EventName)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.VolunteerRole.Role)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.VolunteerRole.Role)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Email)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Email)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.FamilyName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.FamilyName)
+		</dd>
+
+	</dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.CommitmentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

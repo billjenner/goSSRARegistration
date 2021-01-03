@@ -1,0 +1,54 @@
+@model IEnumerable<goSSRA.Registration.Models.PaymentBtns>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<div style="text-align: center">
+    <h2>Payment Buttons</h2>
+
+    @* only admins can modify existing records *@
+        <br /><p>
+            Create New Payment Button @Html.ActionLink("here", "Create")
+        </p><br />
+</div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hRefLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.btnDesc)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hRefLink)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.btnDesc)
+                </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PaymentBtnsID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PaymentBtnsID })
+                    </td>
+            </tr>
+        }
+
+    </table>

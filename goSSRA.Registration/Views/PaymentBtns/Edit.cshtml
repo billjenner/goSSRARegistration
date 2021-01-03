@@ -1,0 +1,65 @@
+@model goSSRA.Registration.Models.PaymentBtns
+
+@{
+    ViewBag.Title = "Edit";
+}
+<br />
+<br />
+<h2>Payment Buttons</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>Program</legend>
+
+        @Html.HiddenFor(model => model.PaymentBtnsID)
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Desc, new { @class = "control-label" })
+			<div class="controls">
+                @Html.TextAreaFor(model => model.Desc, new { @rows = 10 })
+				@Html.ValidationMessageFor(model => model.Desc, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Amount, new { @class = "control-label" })
+			<div class="controls">
+                @Html.EditorFor(model => model.Amount)
+				@Html.ValidationMessageFor(model => model.Amount, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.hRefLink, new { @class = "control-label" })
+			<div class="controls">
+                @Html.TextAreaFor(model => model.hRefLink, new { @rows = 10 })
+				@Html.ValidationMessageFor(model => model.hRefLink, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.btnDesc, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.btnDesc)
+				@Html.ValidationMessageFor(model => model.btnDesc, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Save" class="btn" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

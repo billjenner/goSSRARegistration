@@ -1,0 +1,12 @@
+@model goSSRA.Registration.ViewModel.Receipt
+
+<hr />
+
+<br />
+<div align="Center">
+    <a class="btn" href="@Url.Action("EmailReceipt", "Enrollment", new { id=Model.Enrollment.EnrollmentID })">Email My Confirmation to Me - Go here &raquo;</a>
+</div>
+<br />
+<hr />
+
+@Html.Partial("_receipt", Model)

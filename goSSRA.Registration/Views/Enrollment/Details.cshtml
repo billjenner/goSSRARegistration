@@ -1,0 +1,134 @@
+@model goSSRA.Registration.Models.Enrollment
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Enrollment</legend>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollersName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollersName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Athlete.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Athlete.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Program.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Program.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paid)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ConsentFormsOk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConsentFormsOk)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HealthChkOk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HealthChkOk)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SSRACodeofConductForm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSRACodeofConductForm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentCodeofConductSSRAForm)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ParentCodeofConductSSRAForm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VolunteerForm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VolunteerForm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssumptionAndAcceptanceOfRsForm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssumptionAndAcceptanceOfRsForm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicalReleaseForm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicalReleaseForm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConcussionInfoForm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConcussionInfoForm)
+        </dd>
+    </dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Cancel", "Index")
+</p>

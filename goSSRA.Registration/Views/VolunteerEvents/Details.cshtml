@@ -1,0 +1,74 @@
+@model goSSRA.Registration.Models.VolunteerEvents
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<h2>Details</h2>
+
+<fieldset>
+	<legend>VolunteerEvents</legend>
+	<dl>
+		<dt>
+			@Html.DisplayNameFor(model => model.EventName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.EventName)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Desc)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Desc)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Date)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Date)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.AdminRole)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.AdminRole)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.RaceRole)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.RaceRole)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.OtherRole)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.OtherRole)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Active)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Active)
+		</dd>
+
+	</dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.EventID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

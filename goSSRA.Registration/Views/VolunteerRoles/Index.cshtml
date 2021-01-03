@@ -1,0 +1,82 @@
+@model IEnumerable<goSSRA.Registration.Models.VolunteerRoles>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<div style="text-align: center">
+    <h2>Index</h2>
+
+    <br /><p>
+        @Html.ActionLink("Create New", "Create")
+    </p><br />
+</div>
+@{
+    var TopColor = "#E8D0E8";
+    var OddColor = "#FBF4FB";
+    var evenColor = "#FFFDFF";
+    var Odd = OddColor;
+}
+<table class="table">
+    <tr border="1" bgcolor="@TopColor">
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RaceRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr border="1" bgcolor="@Odd">
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RaceRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RoleID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RoleID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RoleID })
+            </td>
+        </tr>
+        if (Odd == OddColor)
+        {
+            Odd = evenColor;
+        }
+        else
+        {
+            Odd = OddColor;
+        }
+    }
+
+</table>
+

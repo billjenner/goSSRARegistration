@@ -1,0 +1,83 @@
+@model IEnumerable<goSSRA.Registration.Models.Enrollment>
+@{
+    Layout = null;
+}
+@{
+    string strYesNo;
+}
+<style>
+    table, th, td {
+        white-space: nowrap;
+        padding-left: 8px;
+    }
+</style>
+<table>
+    <thead>
+        <tr>
+            <th>EnrollersName</th>
+            <th>AthleteFullName</th>
+            <td>Gender</td>
+            <td>Birthday</td>
+            <th>Parent_#1_Name</th>
+            <th>Parent_#2_Name</th>
+            <th>Parent_#1_Phone</th>
+            <th>Parent_#2_Phone</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Postal_Code</th>
+
+            <th>Athlete Email</th>
+            <th>Program_Title</th>
+            <th>Enrollment_Date</th>
+            <th>Payment_Email</th>
+            <th>Price</th>
+            <th>Paid</th>
+            <th>ConsentFormsOk</th>
+            <th>HealthChkOk</th>
+            <th>SSRACodeofConductForm</th>
+            <th>ParentCodeofConductSSRAForm</th>
+            <th>VolunteerForm</th>
+            <th>AssumptionAndAcceptanceOfRsForm</th>
+            <th>MedicalReleaseForm</th>
+            <th>ConcussionInfoForm</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EnrollersName</td>
+                <td>@item.Athlete.FullName</td>
+
+                <td>@item.Athlete.Gender</td>
+                <td>@item.Athlete.Birthday.ToShortDateString()</td>
+                <td>@item.Athlete.ParentName1</td>
+                <td>@item.Athlete.ParentName2</td>
+                <td>@item.Athlete.Parent1Phone1</td>
+                <td>@item.Athlete.Parent1Phone2</td>
+                <td>@item.Athlete.Address</td>
+                <td>@item.Athlete.City</td>
+                <td>@item.Athlete.State</td>
+                <td>@item.Athlete.Postcode</td>
+                <td>@item.Athlete.Email</td>
+
+                <td>@item.Program.Title</td>
+                <td>@item.EnrollmentDate.ToShortDateString()</td>
+                <td>@item.PaymentEmail</td>
+                <td>@item.Price</td>
+                <td>@{ strYesNo = (item.Paid) ? "Yes" : "No"; } @strYesNo</td>
+                <td>@{ strYesNo = (item.ConsentFormsOk) ? "Yes" : "No"; } @strYesNo</td>
+                <td>@{ strYesNo = (item.HealthChkOk) ? "Yes" : "No"; } @strYesNo</td>
+                <td>@{ strYesNo = (item.SSRACodeofConductForm) ? "Yes" : "No"; } @strYesNo</td>
+                <td>@{ strYesNo = (item.ParentCodeofConductSSRAForm) ? "Yes" : "No"; } @strYesNo</td>
+                <td>@{ strYesNo = (item.VolunteerForm) ? "Yes" : "No"; } @strYesNo</td>
+                <td>@{ strYesNo = (item.AssumptionAndAcceptanceOfRsForm) ? "Yes" : "No"; } @strYesNo</td>
+                <td>@{ strYesNo = (item.MedicalReleaseForm) ? "Yes" : "No"; } @strYesNo</td>
+
+                <td>@{ strYesNo = (item.ConcussionInfoForm) ? "Yes" : "No"; } @strYesNo</td>
+            </tr>
+        }
+    </tbody>
+</table>

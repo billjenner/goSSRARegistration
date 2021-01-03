@@ -1,0 +1,81 @@
+@model goSSRA.Registration.Models.Program
+
+@{
+    ViewBag.Title = "Edit";
+}
+<br />
+<br />
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>Program</legend>
+
+        @Html.HiddenFor(model => model.ProgramID)
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Title, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.Title)
+				@Html.ValidationMessageFor(model => model.Title, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+			<div class="controls">
+                @Html.TextAreaFor(model => model.Description, new { @rows = 10 })
+				@Html.ValidationMessageFor(model => model.Description, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Price, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.Price)
+				@Html.ValidationMessageFor(model => model.Price, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Discount, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.Discount)
+				@Html.ValidationMessageFor(model => model.Discount, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.DiscountDesc, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.DiscountDesc)
+				@Html.ValidationMessageFor(model => model.DiscountDesc, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Active, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.Active)
+				@Html.ValidationMessageFor(model => model.Active, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Save" class="btn" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

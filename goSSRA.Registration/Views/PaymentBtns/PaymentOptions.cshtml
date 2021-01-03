@@ -1,0 +1,55 @@
+@model IEnumerable<goSSRA.Registration.Models.PaymentBtns>
+@{
+    ViewBag.Title = "Payment Options";
+}
+<br />
+<br />
+<div style="text-align: center">
+    <h2>Payment Options</h2>
+</div>
+<br />
+<br />
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <br />
+                <hr />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                @Html.DisplayFor(modelItem => item.Desc)
+            </td>
+            <td></td>
+        </tr>
+        if (item.Amount != null)
+        {
+            if (item.Amount > 0)
+            {
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                </tr>
+            }
+        }
+        <tr>
+            <td>
+                <br />
+                <a class="btn" href="@item.hRefLink" target=" _blank">@item.btnDesc</a>
+
+
+
+
+            </td>
+            <td></td>
+        </tr>
+    }
+
+</table>

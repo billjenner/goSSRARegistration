@@ -1,0 +1,208 @@
+@model goSSRA.Registration.Models.Enrollment
+@{
+    ViewBag.Title = "Create";
+}
+<br />
+<br />
+<h2>Create Enrollment</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend></legend>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.EnrollersName, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.EnrollersName)
+                @Html.ValidationMessageFor(model => model.EnrollersName, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.AthleteID, "Athlete", new { @class = "control-label" })
+            <div class="controls">
+                @Html.DropDownList("AthleteID", String.Empty)
+                @Html.ValidationMessageFor(model => model.AthleteID, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.ProgramID, "Program", new { @class = "control-label" })
+            <div class="controls">
+                @Html.DropDownList("ProgramID", String.Empty)
+                @Html.ValidationMessageFor(model => model.ProgramID, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.EnrollmentDate, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.EnrollmentDate)
+                @Html.ValidationMessageFor(model => model.EnrollmentDate, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <p>
+                    "To insure proper billing: When paying online, what email address is associated with your Paypal account (if different from the email above)?"
+                </p>
+            </div>
+            @Html.LabelFor(model => model.PaymentEmail, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.PaymentEmail)
+                @Html.ValidationMessageFor(model => model.PaymentEmail, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Price, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Price)
+                @Html.ValidationMessageFor(model => model.Price, null, new { @class = "help-inline" })
+            </div>
+        </div>
+    </fieldset>
+    <br />
+    <fieldset class="form-horizontal">
+        <legend>Terms and Conditions</legend>
+        <div class="control-group">
+            @Html.LabelFor(model => model.SSRACodeofConductForm, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.SSRACodeofConductForm)
+                @Html.ValidationMessageFor(model => model.SSRACodeofConductForm, null, new { @class = "help-inline" })
+                @Html.ActionLink("details", "Form1", "Home", null, new { target = "_blank" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.ParentCodeofConductSSRAForm, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.ParentCodeofConductSSRAForm)
+                @Html.ValidationMessageFor(model => model.ParentCodeofConductSSRAForm, null, new { @class = "help-inline" })
+                @Html.ActionLink("details", "Form6", "Home", null, new { target = "_blank" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.VolunteerForm, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.VolunteerForm)
+                @Html.ValidationMessageFor(model => model.VolunteerForm, null, new { @class = "help-inline" })
+                @Html.ActionLink("details", "Form5", "Home", null, new { target = "_blank" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.AssumptionAndAcceptanceOfRsForm, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.AssumptionAndAcceptanceOfRsForm)
+                @Html.ValidationMessageFor(model => model.AssumptionAndAcceptanceOfRsForm, null, new { @class = "help-inline" })
+                @Html.ActionLink("details", "Form2", "Home", null, new { target = "_blank" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.MedicalReleaseForm, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.MedicalReleaseForm)
+                @Html.ValidationMessageFor(model => model.MedicalReleaseForm, null, new { @class = "help-inline" })
+                @Html.ActionLink("details", "Form4", "Home", null, new { target = "_blank" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.ConcussionInfoForm, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.ConcussionInfoForm)
+                @Html.ValidationMessageFor(model => model.ConcussionInfoForm, null, new { @class = "help-inline" })
+                @Html.ActionLink("details", "Form3", "Home", null, new { target = "_blank" })
+            </div>
+        </div>
+        <div class="form-actions no-color">
+            <input type="submit" value="Complete My Enrollment" class="btn" />
+        </div>
+    </fieldset>
+
+}
+<div>
+    @Html.ActionLink("Cancel", "Index")
+</div>
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $(function () {
+            // retrieve  the signed on user ID to set Enrollment Name field
+            $.ajax({
+                url: '@Url.Action("GetUserID", "Enrollment")',
+                dataType: 'json',
+                type: 'POST',
+                data: {},
+                success: setEnrollersName,
+                error: errorEnrollersName
+            });
+
+            function setEnrollersName(username) {
+                $('#EnrollersName').val(username);
+            }
+
+            function errorEnrollersName(error) {
+                alert("An error occured - determining user id " + error + ". Retry login.");
+            }
+
+            // retrieve  amount associated with selected program ski package
+            $('#ProgramID').change(function () {
+                $.ajax({
+                    url: '@Url.Action("GetPrice", "Enrollment")',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: { programID: $("#ProgramID").val() },
+                    success: function (data) {
+                        $('#Price').val(data.Price);
+                    },
+                    error: function (error) {
+                        alert("An error occured - determining user id " + error + ". Retry login.");
+                    }
+                });
+            });
+
+            function errorPrice(error) {
+                alert("An error occured - determining user id " + error + ". Retry login.");
+            }
+
+            // format date - wow
+            var now = new Date();
+            var cMonth = now.getMonth() + 1;
+            var cDay = now.getDate();
+            var cYear = now.getYear() + 1900;
+            var cHour = now.getHours();
+            var cMinuts = now.getMinutes();
+            var cSeconds = now.getSeconds();
+
+            var TS = (cMonth <= 9 ? ('0' + cMonth) : cMonth) + '/' +
+            (cDay <= 9 ? ('0' + cDay) : cDay) + '/' +
+            cYear + ' ' +
+            (cHour <= 0 ? ('0' + cHour) : (cHour <= 12 ? cHour : (cHour - 12))) + ':' +
+            (cMinuts <= 9 ? ('0' + cMinuts) : cMinuts) + ':' +
+            (cSeconds <= 9 ? '0' + cSeconds : cSeconds) + ' ' +
+            (cHour <= 12 ? 'AM' : 'PM');
+
+            // set properties for all input
+            $('#EnrollersName').attr('readonly', true);
+            $('#EnrollersName').css("background-color", "Gray");
+
+            $('#EnrollmentDate').val(TS);
+            $('#EnrollmentDate').attr('readonly', true);
+            $('#EnrollmentDate').css("background-color", "Gray");
+
+            $('#Price').attr('readonly', true);
+            $('#Price').css("background-color", "Gray");
+
+            $('#AthleteID').focus();
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
+

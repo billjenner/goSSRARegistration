@@ -1,0 +1,61 @@
+@model IEnumerable<goSSRA.Registration.Models.ReceiptData>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<div style="text-align: center">
+    <h2>Receipt Information</h2>
+
+    <br /><p>
+        @Html.ActionLink("Edit Details", "Edit", new { id = 1 })
+    </p><br />
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailRecipient1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailRecipient2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeaderInfo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Footer1Info)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Footer2Info)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Footer3Info)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.EmailRecipient1)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.EmailRecipient2)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.HeaderInfo)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Footer1Info)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Footer2Info)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Footer3Info)
+            </td>
+        </tr>
+    }
+
+</table>

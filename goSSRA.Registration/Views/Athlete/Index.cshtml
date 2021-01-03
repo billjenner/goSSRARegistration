@@ -1,0 +1,271 @@
+@model IEnumerable<goSSRA.Registration.Models.Athlete>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<div style="text-align: center">
+    <h2>Athlete Profiles</h2>
+    <br /><p>
+        Register New Athelete Profile @Html.ActionLink("here", "Create")
+    </p><br />
+</div>
+@if (ViewBag.adminRole)
+{
+    using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="span4">
+                <pre>Registered Athlete Count: @Model.Count()</pre>
+            </div>
+            <div class="span4">
+                <pre><center>@Html.ActionLink("Excell Freindly Data", "Index", new { sortOrder = ViewBag.CurrentSort, sortDesc = ViewBag.sortDesc, currentFilter = ViewBag.CurrentFilter, excelFreindly = true }, new { target = "_blank" })</center></pre>
+            </div>
+            <div class="span4">
+                <p>
+                    Find: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                    <input type="submit" value="Search" class="btn" />
+
+                </p>
+            </div>
+        </div>
+    }
+}
+@if (Model.Any())
+{
+    var TopColor = "#DDDDFF";
+    var OddColor = "#FAFAF4";
+    var evenColor = "#FFFFF8";
+    var Odd = OddColor;
+
+    <table class="table">
+        <tr border="1" bgcolor="@TopColor">
+            <th>
+                @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FirstNameSortParm, sortDesc = ViewBag.sortDesc, currentFilter = ViewBag.CurrentFilter })
+                @*@Html.DisplayNameFor(model => model.FirstName)*@
+            </th>
+            <th>
+                @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.LastNameSortParm, sortDesc = ViewBag.sortDesc, currentFilter = ViewBag.CurrentFilter })
+                @*@Html.DisplayNameFor(model => model.LastName)*@
+            </th>
+            <th>
+                @Html.ActionLink("Gender", "Index", new { sortOrder = ViewBag.GenderSortParm, sortDesc = ViewBag.sortDesc, currentFilter = ViewBag.CurrentFilter })
+                @*@Html.DisplayNameFor(model => model.Gender)*@
+            </th>
+            <th>
+                @Html.ActionLink("Birthday", "Index", new { sortOrder = ViewBag.BirthdaySortParm, sortDesc = ViewBag.sortDesc, currentFilter = ViewBag.CurrentFilter })
+                @*@Html.DisplayNameFor(model => model.Birthday)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Postcode)
+            </th>
+            <th>
+                @Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.EmailSortParm, sortDesc = ViewBag.sortDesc, currentFilter = ViewBag.CurrentFilter })
+                @*@Html.DisplayNameFor(model => model.Email)*@
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.ParentName1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Parent1Phone1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Parent1Phone1Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Parent1Phone2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Parent1Phone2Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ParentName2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Parent2Phone1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Parent2Phone1Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Parent2Phone2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Parent2Phone2Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MedicalConditions)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PresentMedications)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Allergies)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.School)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Grade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MedicalInsurance)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PolicyNum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InsurancePhone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Physician)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhysicianPhone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmergenyContact)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmergenyContactPhone)
+                </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr border="1" bgcolor="@Odd">
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birthday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Postcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.ParentName1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parent1Phone1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parent1Phone1Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parent1Phone2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parent1Phone2Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ParentName2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parent2Phone1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parent2Phone1Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parent2Phone2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Parent2Phone2Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MedicalConditions)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PresentMedications)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Allergies)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.School)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MedicalInsurance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PolicyNum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InsurancePhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Physician)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhysicianPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmergenyContact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmergenyConractPhone)
+                    </td>*@
+                <td class="column1">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AthleteID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.AthleteID }) |
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.AthleteID })
+                    }
+                </td>
+
+            </tr>
+
+                    if (Odd == OddColor)
+                    {
+                        Odd = evenColor;
+                    }
+                    else
+                    {
+                        Odd = OddColor;
+                    }
+        }
+
+    </table>
+    <hr />
+    <br />
+    <div style="text-align: center">
+        <br /><p>
+            Now that a Athlete Profile is created, you can continue to Enrollment @Html.ActionLink("here", "Create", "Enrollment")
+        </p><br />
+    </div>
+}

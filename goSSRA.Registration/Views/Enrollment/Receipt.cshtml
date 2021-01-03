@@ -1,0 +1,192 @@
+@model goSSRA.Registration.ViewModel.Receipt
+@{
+    Layout = null;
+}
+<br />
+<style>
+    /* suppress link for printing */
+    @@media only print {
+        a {
+            display: none;
+        }
+    }
+</style>
+<div class="row">
+    <a href="#" onclick="window.print(); return false;">Print</a>
+    @*To Due - supress for now until more reliable SMTP host is avaliable
+    <a href="@Url.Action("EmailReceipt", "Enrollment", new { id=Model.Enrollment.EnrollmentID })">Email Me</a>*@
+</div>
+<div class="row">
+    <p><a class="btn" href="http://gossra.org/index.php?option=com_content&view=article&id=24&Itemid=32" target=" _blank">Credit Card Payment Now</a></p>
+</div>
+<table align="center">
+    <tr>
+        <td>
+            <img src="@Model.ImageUrl" />
+        </td>
+    </tr>
+</table>
+<br />
+<br />
+<h3>
+    <p align="center" cellpadding="100" cellspacing="100">
+        @Html.DisplayFor(model => model.ReceiptData.HeaderInfo)
+    </p>
+</h3>
+<br />
+<table width="90%" cellpadding="3" cellspacing="3" align="center">
+    <tr border="1" bgcolor="#777777" color="#ffffff">
+        <td width="40%" align="center"></td>
+        <td width="60%" align="center"></td>
+    </tr>
+    @{
+        var OddColor = "#DDEEEE";
+        var evenColor = "#EEFFFF";
+        var Odd = OddColor;
+        var Even = evenColor;
+    }
+    <tr border="1" bgcolor="@Odd">
+        <td>
+            @Html.DisplayNameFor(model => model.Enrollment.EnrollmentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Enrollment.EnrollmentDate)
+        </td>
+    </tr>
+    <tr border="1" bgcolor="@Even">
+        <td>
+            @Html.DisplayNameFor(model => model.Enrollment.EnrollersName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Enrollment.EnrollersName)
+        </td>
+    </tr>
+    <tr border="1" bgcolor="@Odd">
+        <td>
+            @Html.DisplayNameFor(model => model.Enrollment.Athlete)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Enrollment.Athlete.FullName)
+        </td>
+    </tr>
+    <tr border="1" bgcolor="@Even">
+        <td>
+            @Html.DisplayNameFor(model => model.Enrollment.Program)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Enrollment.Program.Title)
+        </td>
+    </tr>
+    <tr border="1" bgcolor="@Odd">
+        <td>
+            @Html.DisplayNameFor(model => model.Enrollment.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Enrollment.Price)
+        </td>
+    </tr>
+    <tr border="1" bgcolor="@Even">
+        <td>
+            @Html.DisplayNameFor(model => model.Enrollment.Program.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Enrollment.Program.Description)
+        </td>
+    </tr>
+    <tr border="1" bgcolor="@Odd">
+        <td>
+            @Html.DisplayNameFor(model => model.Enrollment.SSRACodeofConductForm)
+        </td>
+        <td>
+            @{
+                string AcceptTermsYesNo1 = (Model.Enrollment.AssumptionAndAcceptanceOfRsForm) ? "Yes" : "No";
+            }
+            @AcceptTermsYesNo1
+        </td>
+    </tr>
+    <tr border="1" bgcolor="@Even">
+        <td>
+            @Html.DisplayNameFor(model => model.Enrollment.ParentCodeofConductSSRAForm)
+        </td>
+        <td>
+            @{
+                string AcceptTermsYesNo2 = (Model.Enrollment.AssumptionAndAcceptanceOfRsForm) ? "Yes" : "No";
+            }
+            @AcceptTermsYesNo2
+        </td>
+    </tr>
+    <tr border="1" bgcolor="@Odd">
+        <td>
+            @Html.DisplayNameFor(model => model.Enrollment.VolunteerForm)
+        </td>
+        <td>
+            @{
+                string AcceptTermsYesNo3 = (Model.Enrollment.AssumptionAndAcceptanceOfRsForm) ? "Yes" : "No";
+            }
+            @AcceptTermsYesNo3
+        </td>
+    </tr>
+    <tr border="1" bgcolor="@Even">
+        <td>
+            @Html.DisplayNameFor(model => model.Enrollment.AssumptionAndAcceptanceOfRsForm)
+        </td>
+        <td>
+            @{
+                string AcceptTermsYesNo4 = (Model.Enrollment.AssumptionAndAcceptanceOfRsForm) ? "Yes" : "No";
+            }
+            @AcceptTermsYesNo4
+        </td>
+    </tr>
+    <tr border="1" bgcolor="@Odd">
+        <td>
+            @Html.DisplayNameFor(model => model.Enrollment.MedicalReleaseForm)
+        </td>
+        <td>
+            @{
+                string AcceptTermsYesNo5 = (Model.Enrollment.AssumptionAndAcceptanceOfRsForm) ? "Yes" : "No";
+            }
+            @AcceptTermsYesNo5
+        </td>
+    </tr>
+    <tr border="1" bgcolor="@Even">
+        <td>
+            @Html.DisplayNameFor(model => model.Enrollment.ConcussionInfoForm)
+        </td>
+        <td>
+            @{
+                string AcceptTermsYesNo6 = (Model.Enrollment.AssumptionAndAcceptanceOfRsForm) ? "Yes" : "No";
+            }
+            @AcceptTermsYesNo6
+        </td>
+    </tr>
+    <tr border="1" bgcolor="#777777" color="#ffffff">
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<br />
+<table width="80%" cellpadding="3" cellspacing="3" align="center">
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.ReceiptData.Footer1Info)
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.ReceiptData.Footer2Info)
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.ReceiptData.Footer3Info)
+        </td>
+    </tr>
+</table>
+<div class="row">
+    <a href="#" onclick="window.print(); return false;">Print</a>
+</div>
+<div class="row">
+    <p><a class="btn" href="http://gossra.org/index.php?option=com_content&view=article&id=24&Itemid=32" target=" _blank">Credit Card Payment Now</a></p>
+</div>

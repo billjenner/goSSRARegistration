@@ -1,0 +1,44 @@
+@model goSSRA.Registration.Models.Enrollment
+
+@{
+    ViewBag.Title = "Online Enrollment Complete";
+}
+<br />
+<br />
+<h2>Enrollment Information Submission Complete!</h2>
+<br />
+<br />
+<div class="row">
+    <div class="span12" align="center">
+        <p>
+            <h3>FINAL ENROLLMENT STEP:</h3>
+        </p>
+        <br />
+        <p>
+            <h3>CLICK @Html.ActionLink("HERE", "EmailReceipt", new { id = Model.EnrollmentID }, new { target = "_blank" })</h3>
+        </p>
+        <br />
+        <p>
+            and PRINT THE ENROLLMENT VERIFICATION
+            **ENROLLMENT VERIFICATION MUST BE MAILED TO ADDRESS ON PRINTED VERIFICATION**
+        </p>
+
+    </div>
+</div>
+<br />
+<div class="row" class="span12">
+    <div class="span12" align="center">
+        <p>
+            PAYMENT CAN BE MADE ON VERIFICATION PAGE, ONCE ENROLLMENT VERIFICATION IS PRINTED<br />
+            OR<br />
+            PAYMENT CAN BE MAILED WITH ENROLLMENT VERIFICATION
+    </div>
+    </p>
+</div>
+<br />
+<div class="row">
+    <div class="span12" align="center">
+        @Html.ActionLink("Back to Enrollment List", "Index")
+    </div>
+</div>
+

@@ -1,0 +1,66 @@
+@model goSSRA.Registration.Models.Program
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<h2>Details</h2>
+
+<fieldset>
+	<legend>Program</legend>
+	<dl>
+		<dt>
+			@Html.DisplayNameFor(model => model.Title)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Title)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Description)
+		</dt>
+
+		<dd>
+            @Html.TextAreaFor(model => model.Description, new { @rows = 10 })
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Price)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Price)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Discount)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Discount)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.DiscountDesc)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.DiscountDesc)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Active)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Active)
+		</dd>
+
+	</dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ProgramID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

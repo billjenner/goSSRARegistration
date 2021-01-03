@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Email Test";
+}
+<br />
+<br />
+<div style="text-align: center">
+    <h2>Email Test</h2>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>Test Email Process</legend>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="emailTo" class="btn" />
+            @Html.TextBox("emailTo", ViewBag.emailTo as string)
+        </div>
+    </fieldset>
+}

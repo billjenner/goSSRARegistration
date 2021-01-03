@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>Adminstration Support</title>
+    <br />
+    <br />
+    <h2>Adminstration Support</h2>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div>
+        <hr />
+        <ul>
+            <li>@Html.ActionLink("Event Setup", "Index", "VolunteerEvents")</li>
+            <li>@Html.ActionLink("Event Role Setup", "Index", "VolunteerRoles")</li>
+        </ul>
+        <hr />
+        <ul>
+            <li>@Html.ActionLink("Receipt Information Maintenance", "Index", "ReceiptData")</li>
+        </ul>
+        <hr />
+        <ul>
+            <li>@Html.ActionLink("CC Payment Maintenance", "Index", "PaymentBtns")</li>
+        </ul>
+        <hr />
+        <ul>
+            <li>@Html.ActionLink("User Administration", "Index", "UserAdministration")</li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+@model goSSRA.Registration.Models.PaymentBtns
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br />
+<br />
+<h2>Payment Buttons</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Program</legend>
+
+	<dl>
+		<dt>
+			@Html.DisplayNameFor(model => model.Desc)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Desc)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Amount)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Amount)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.hRefLink)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.hRefLink)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.btnDesc)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.btnDesc)
+		</dd>
+	</dl>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

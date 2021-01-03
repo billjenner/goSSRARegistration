@@ -1,0 +1,108 @@
+@model goSSRA.Registration.Models.VolunteerCommitments
+
+@{
+    ViewBag.Title = "Create";
+}
+<br />
+<br />
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>VolunteerCommitments</legend>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.EventID, "VolunteerEvent", new { @class = "control-label" })
+            <div class="controls">
+                @Html.DropDownList("EventID", String.Empty)
+                @Html.ValidationMessageFor(model => model.EventID, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        @Html.Partial("_roleIDDropDown", Model)
+
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Email, "Registers Email", new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.FamilyName, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.FamilyName)
+                @Html.ValidationMessageFor(model => model.FamilyName, null, new { @class = "help-inline" })
+            </div>
+        </div>
+        <div class="form-actions no-color">
+            <input type="submit" value="Create" class="btn" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script type="text/javascript">
+        $(function () {
+            var SelVal = $("#EventID").val();
+            getRoleIdDDlist(SelVal);
+            $("#EventID").change(function () {
+                SelVal = $("#EventID").val();
+                getRoleIdDDlist(SelVal);
+            });
+
+            function getRoleIdDDlist(SelVal) {
+                if (SelVal != 0) {
+                    var url = '@Url.Action("GetRoles", "VolunteerCommitments")';
+                    $.post(url, { eventID: SelVal },
+                    function (_roles) {
+                        var roleIDDropdown = $("#RoleID");
+                        $("#RoleID").empty();
+                        $("#RoleID").append('<option value="">make selection</option>');
+                        for (var i = 0; i < _roles.length; i++) {
+                            $("#RoleID").append('<option value="' + _roles[i].Value + '">' + _roles[i].Key + '</option>');
+                        }
+                    });
+                    $("#RoleID").disabled = false;
+                }
+                else {
+                    $("#RoleID").empty();
+                    $("#RoleID").append('<option value=""></option>');
+                    $("#RoleID").disabled = true;
+                }
+            };
+
+           // retrieve  the signed on user ID to set Enrollment Name field
+           $.ajax({
+               url: '@Url.Action("GetUserID", "Enrollment")',
+               dataType: 'json',
+               type: 'POST',
+               data: { },
+               success: function (username) {
+                   $('#Email').val(username);
+
+                   // set properties for all input
+                   $('#Email').attr('readonly', true);
+                   $('#Email').css("background-color", "Gray");
+               },
+               error: function (error) {
+                   alert("An error occured - determining user id " + error + ". Retry login.");
+               }
+           });
+       });
+</script>
+}

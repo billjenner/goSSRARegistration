@@ -1,0 +1,9 @@
+@model goSSRA.Registration.Models.VolunteerCommitments
+
+<div class="control-group" id="divRoleID">
+    @Html.LabelFor(model => model.RoleID, "VolunteerRole", new { @class = "control-label" })
+    <div class="controls">
+        @Html.DropDownList("RoleID", String.Empty)
+        @Html.ValidationMessageFor(model => model.RoleID, null, new { @class = "help-inline" })
+    </div>
+</div>
